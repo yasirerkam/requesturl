@@ -1,9 +1,9 @@
 language: python
 python:
-  - 3.9
-  - 3.8
-  - 3.7
-  - 3.6
+- 3.9
+- 3.8
+- 3.7
+- 3.6
 install: pip install -U tox-travis
 script: tox
 deploy:
@@ -12,7 +12,7 @@ deploy:
   user: Yasir_Erkam
   username: __token__
   password:
-    secure: Y6IXtbnsrJ7mI5RFH7XOezHZdTqgqc3VcSYBJPh73XGmvwjMq5vCbwc0mDxh1WPt/phJxEqJo/XO32DSfvdbyeqHJqFlvFHnOtuBxxXxUcN0crW3lIV4Z/788ERep8l6DpngPvX8Ea0D6GGzHrEH2R/uMt5hk/srHIX0NCJ8EGvZKobQVA5UNMVGr+PIprq+8xboo/Yy+daEIzf/TnzVAirJb9kb44t/Hnt+wkow/JZN1+4unzRxHu/1AiFEd78a/9xjPxxiFdinaGTgydfnwyIywd7R7M5dVuc9wZJV4Khs1qVBDOmPB+V7DNBkFmhcEr7go8p+o3KolwDo7UWcnJ01rs0DzoMBodubh3Sgc8cnbKUDZAiUwEtWPlJDSmctcYiJh6BiR9uqEJD+hk+nBBAPZOEktvfqbaRKj7uO1kYaqMXzn0fwo5b4+bOs7QUcRxbakzN3ytsr1l1U1Gpl71Q7nxkd5FjykEX29BrFar009mG2DtXeeaOc3qcot6jE7BUZ0Al90Oc9aavonxroyn8RchMga77l4kENB4dbgYCazbZZkh32S4hgQ73xZpLBv6QwBrWylEmXC/60d1w92ZDgrtYuF1c+tWlKZI/G+v7zhiQ4JnvGyp8h0latB5TcFd49QITV94l7KL68CSTiPuWpODfvxpaMzm5pomduS1c=
+    secure: TORmjd8LPI+viqf9J6xxDeEa0wZuhAE7UnwODr0Ke3sYV2U69NZ0cEi0/EkrNz4OT3il1MVP41rxNnUVzKxNGR6XZpennaB2zHm70tSx5KfUdlCtjXe4PPPUArMM4bGBM1UDWOB5KQOAQFJ7piaYkKt+lXzyniJd6ekhZuXWrUra/AQ+04gp6fKt2Mx/qbaP/RM4n+r6xdnr+zIYSlIcXIF88DWdZF59wA5wkY+qSXlKuxLQ58JkNXYb7YenxbccJCmVL0sTz7FnwbniOGXfOWVRwGaMNYKtmKquFIlwjozrG20B9TFnjT+iir7ZXaVOul/b2Cj2fwE6NWPwkJJMIwGr4sdPk1B2OGR9cSZq58cdj+TSCQCVWGA5YFlN9xZk/ypUcJm64TpuOj2s7PhC2qVmM6zohLpxL9GIdhbWc9AcHVVhFrv2j8hD2R99tHk5lQpbsXKoQbwIguuzIeCmv7XH0rzZycU1J3+q6p6BjFrOUilSPg9N+lF+Kpy7e4tFim9PztOzGmxDiLaJXWcx9xhYSp1TfW+W0mA9kaCnsGkJTxh0y/yWqrCwaBmREQ1Cfy3Nv5zd+UkzmLNuj1aA7gIuwWcrbgC4L0uJHF1JqjoNmt19Fb6+K/AjkUBKBIYZVzBo6KLyF1jRhI0YkY2IJ+J1wdknyuvoSu7OuSsulWQ=
   on:
     tags: true
     repo: yasirerkam/requesturl
