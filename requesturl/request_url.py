@@ -4,7 +4,7 @@ import urllib.request
 from fp.fp import FreeProxy
 
 
-def RequestURL(
+def request_url(
     url: str,
     data,
     proxy: dict = None,
@@ -51,7 +51,7 @@ def RequestURL(
     return response
 
 
-def GetNewProxy(
+def get_new_proxy(
     oldAddress: str = None,
     anonym: bool = False,
     rand: bool = True,
@@ -63,7 +63,7 @@ def GetNewProxy(
 
     if proxyAddress is None:
         print("No working proxy")
-        GetNewProxy(oldAddress)
+        get_new_proxy(oldAddress)
         return
 
     proxy = {"http": proxyAddress, "https": proxyAddress}
@@ -73,11 +73,11 @@ def GetNewProxy(
 
     if proxy == oldAddress:
         print("New proxy is same with old one!")
-        GetNewProxy(oldAddress)
+        get_new_proxy(oldAddress)
         return
     elif proxy == None:
         print("New proxy is 'None', will request again!")
-        GetNewProxy(oldAddress)
+        get_new_proxy(oldAddress)
         return
 
     return proxy
