@@ -75,9 +75,5 @@ def get_new_proxy(
         print("New proxy is same with old one!")
         get_new_proxy(oldAddress)
         return
-    elif proxy == None:
-        print("New proxy is 'None', will request again!")
-        get_new_proxy(oldAddress)
-        return
 
     return proxy
