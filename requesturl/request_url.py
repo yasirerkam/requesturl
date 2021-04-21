@@ -3,7 +3,7 @@
 from random import choice
 import urllib.request
 from fp.fp import FreeProxy
-from Proxy_List_Scrapper import Scrapper, Proxy, ScrapperException
+from Proxy_List_Scrapper import Proxies, Scrapper, Proxy, ScrapperException
 
 
 def request_url(
@@ -54,7 +54,7 @@ def request_url(
 
 
 def get_new_proxy_1(
-    oldAddress: str = None,
+    old_address: str = None,
     anonym: bool = False,
     rand: bool = True,
     timeout: float = 2,
@@ -65,53 +65,54 @@ def get_new_proxy_1(
 
     if proxyAddress is None:
         print("No working proxy")
-        get_new_proxy_1(oldAddress)
+        get_new_proxy_1(old_address)
         return
 
     proxy = {"http": proxyAddress, "https": proxyAddress}
 
-    print("\t", oldAddress, " ---> ")
+    print("\t", old_address, " ---> ")
     print("\t", proxy, "\n")
 
-    if proxy == oldAddress:
+    if proxy == old_address:
         print("New proxy is same with old one!")
-        get_new_proxy_1(oldAddress)
+        get_new_proxy_1(old_address)
         return
 
     return proxy
 
 
 def get_new_proxy_2(
-    oldAddress: str = None,
+    proxies: Proxies = None,
+    old_address: str = None,
     category: str = "ALL",
     rand: bool = True,
 ) -> dict:
 
     print("\nGetting new proxy address")
     scrapper = Scrapper(category=category, print_err_trace=False)
-    data = scrapper.getProxies()
-    if data is None:
-        print("No working proxy")
-        get_new_proxy_2(oldAddress)
-        return
+    if proxies == None:
+        proxies = scrapper.getProxies()
+        if proxies is None:
+            print("No working proxy")
+            get_new_proxy_2(old_address=old_address)
+            return
 
     if rand == True:
-        proxy_address = choice(data.proxies)
+        proxy_address = choice(proxies.proxies)
     else:
-        proxy_address = data.proxies[0]
+        proxy_address = proxies.proxies[0]
     proxy_address_ip_port = proxy_address.ip + ":" + proxy_address.port
     proxy = {"http": proxy_address_ip_port, "https": proxy_address_ip_port}
 
-    print("\t", oldAddress, " ---> ")
+    print("\t", old_address, " ---> ")
     print("\t", proxy, "\n")
 
-    if proxy == oldAddress:
+    if proxy == old_address:
         print("New proxy is same with old one!")
-        get_new_proxy_2(oldAddress)
+        get_new_proxy_2(old_address=old_address)
         return
 
-    return proxy
+    return proxy, proxies
 
 
-# data = get_new_proxy_2()
-# print(data)
+print(get_new_proxy_2())
