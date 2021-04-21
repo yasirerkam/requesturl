@@ -113,5 +113,5 @@ def get_new_proxy_2(
     return proxy
 
 
-data = get_new_proxy_2()
-print(data)
+# data = get_new_proxy_2()
+# print(data)
