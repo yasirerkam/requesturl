@@ -10,7 +10,7 @@ with open("README.rst") as readme_file:
 with open("HISTORY.rst") as history_file:
     history = history_file.read()
 
-requirements = ["Click>=7.0", "free-proxy>=1.0.2"]
+requirements = ["Click>=7.0", "free-proxy==1.0.2", "Proxy-List-Scrapper==0.2.2"]
 
 setup_requirements = []
 

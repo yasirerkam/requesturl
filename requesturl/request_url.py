@@ -1,7 +1,9 @@
 """Main module."""
 # import requests
+from random import choice
 import urllib.request
 from fp.fp import FreeProxy
+from Proxy_List_Scrapper import Scrapper, Proxy, ScrapperException
 
 
 def request_url(
@@ -51,7 +53,7 @@ def request_url(
     return response
 
 
-def get_new_proxy(
+def get_new_proxy_1(
     oldAddress: str = None,
     anonym: bool = False,
     rand: bool = True,
@@ -63,7 +65,7 @@ def get_new_proxy(
 
     if proxyAddress is None:
         print("No working proxy")
-        get_new_proxy(oldAddress)
+        get_new_proxy_1(oldAddress)
         return
 
     proxy = {"http": proxyAddress, "https": proxyAddress}
@@ -73,7 +75,39 @@ def get_new_proxy(
 
     if proxy == oldAddress:
         print("New proxy is same with old one!")
-        get_new_proxy(oldAddress)
+        get_new_proxy_1(oldAddress)
+        return
+
+    return proxy
+
+
+def get_new_proxy_2(
+    oldAddress: str = None,
+    category: str = "ALL",
+    rand: bool = True,
+) -> dict:
+
+    print("\nGetting new proxy address")
+    scrapper = Scrapper(category=category, print_err_trace=False)
+    data = scrapper.getProxies()
+    if data is None:
+        print("No working proxy")
+        get_new_proxy_2(oldAddress)
+        return
+
+    if rand == True:
+        proxy_address = choice(data)
+    else:
+        proxy_address = data[0]
+    proxy_address_ip_port = proxy_address.ip + ":" + proxy_address.port
+    proxy = {"http": proxy_address_ip_port, "https": proxy_address_ip_port}
+
+    print("\t", oldAddress, " ---> ")
+    print("\t", proxy, "\n")
+
+    if proxy == oldAddress:
+        print("New proxy is same with old one!")
+        get_new_proxy_2(oldAddress)
         return
 
     return proxy
