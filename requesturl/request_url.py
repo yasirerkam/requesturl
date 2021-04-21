@@ -96,9 +96,9 @@ def get_new_proxy_2(
         return
 
     if rand == True:
-        proxy_address = choice(data)
+        proxy_address = choice(data.proxies)
     else:
-        proxy_address = data[0]
+        proxy_address = data.proxies[0]
     proxy_address_ip_port = proxy_address.ip + ":" + proxy_address.port
     proxy = {"http": proxy_address_ip_port, "https": proxy_address_ip_port}
 
@@ -111,3 +111,7 @@ def get_new_proxy_2(
         return
 
     return proxy
+
+
+data = get_new_proxy_2()
+print(data)
